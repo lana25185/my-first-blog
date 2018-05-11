@@ -1,49 +1,13 @@
-﻿{% load staticfiles %}
-<html>
-    <head>
- <title>Lana blog</title>
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-<link href="https://fonts.googleapis.com/css?family=Lobster&subset=latin,cyrillic" rel="stylesheet" type="text/css">	
-<link rel="stylesheet" href="{% static 'css/blog.css' %}">
-           </head>
-    <body>
-<div class="page-header">
-            <h1><a href="/">Lana Blog</a></h1>
-</div>
-<div>
-    <h1><a href="/">Django Girls Blog</a></h1>
-</div>
+﻿{% extends 'blog/base.html' %}
 
-<div class="content container">
-    <div class="row">
-        <div class="col-md-8">
-            {% for post in posts %}
+{% block content %}
+ {% for post in posts %}
                 <div class="post">
                     <div class="date">
-                        <p>Опубликовано: {{ post.published_date }}</p>
+                        {{ post.published_date }}
                     </div>
                     <h1><a href="">{{ post.title }}</a></h1>
                     <p>{{ post.text|linebreaksbr }}</p>
                 </div>
             {% endfor %}
-        </div>
-    </div>
-</div>
-
-        <div>
-            <p>published: 29.04.2018, 18:00</p>
-            <h2><a href="">My first post</a></h2>
-            <p>Hi everybody!</p>
-        </div>
-<p></p>
-<p></p>
-<p></p>
-        <div>
-            <p>published: 29.04.2018, 18:05</p>
-            <h2><a href="">My second post</a></h2>
-            <p>I did it!</p>
-            <p>Django Girls are cool!</p>
-        </div>
-    </body>
-</html>
+     {% endblock %}
